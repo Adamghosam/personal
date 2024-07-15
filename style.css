@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #103f61;
+    color: #ededed;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 10%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #ededed;
+}
+
+.logo img {
+    width: 70px; /* Sesuaikan ukuran gambar */
+    margin-right: 10px; /* Jarak antara gambar dan teks */
+}
+
+.logo div {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo span {
+    font-size: 25px; /* Sesuaikan ukuran font */
+    font-weight: 600;
+}
+
+.logo .subtitle {
+    font-size: 12px; /* Ukuran font untuk subtitle */
+    margin-top: 5px; /* Jarak antara teks utama dan subtitle */
+}
+
+img {
+    width: 70px;
+}
+
+.navbar a {
+    font-size: 18px;
+    color: #ededed;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 35px;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: #00abf0;
+}
+
+.home {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+}
+
+.home-content {
+    max-width: 600px;
+}
+
+.home-content h1 {
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.home-content h3 {
+    font-size: 40px;
+    font-weight: 700;
+    color: #00abf0;
+}
+
+.home-content .departement {
+    font-size: 50px;
+    font-weight: 700;
+    color: #00abf0;
+}
+
+.home-content h2 {
+    font-size: 25px;
+    font-weight: 700;
+    color: #d9db36;
+}
+
+
+.home-content .cekin{
+    font-size: 40px;
+    font-weight: 700;
+    color: #d5d6d8;
+}
+.alert {
+    margin-top: 30px;
+    border-radius: 20px;
+    padding: 10px;
+    background-color: #3dbb76;
+    color: white;
+}
+
+.home-content .icon {
+    background: #dbdfe0;
+    border-radius: 10px;
+}
+
+.home-clock {
+    max-width: 600px;
+}
+
+.home-clock h1 {
+    font-size: 70px;
+    position: absolute;
+    top: 70%;
+    width: 100%;
+}
+
+.judul {
+    text-align: center;
+}
+
+.clock {
+    position: fixed;
+    bottom: 20px; /* Jarak dari bawah halaman */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 80px;
+    font-weight: 700;
+    color: #00abf0;
+}
+
+.profile-picture {
+    position: fixed;
+    right: 200px; /* Jarak dari kanan halaman */
+    top: 50%;
+    transform: translateY(-50%); /* Biarkan tetap di tengah vertikal */
+    width: 300px; /* Sesuaikan ukuran gambar */
+    height: 300px; /* Sesuaikan ukuran gambar */
+    overflow: hidden;
+    border-radius: 50%;
+    border: 2px solid #fff; /* Opsional: tambahkan border putih untuk membedakan dengan background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Opsional: tambahkan shadow untuk efek mendalam */
+    background-image: url('IMG_20211021_222143_130.jpg'); /* Ganti dengan path foto yang sesuai */
+    background-size: cover; /* Agar gambar mencakup area dengan proporsi yang benar */
+}
+
+.profile-picture img {
+    display: none; /* Sembunyikan tag img jika menggunakan background */
+}
+
+
+
+/* Responsif Design */
+@media (max-width: 1024px) {
+    .clock {
+        font-size: 40px;
+    }
+    .profile-picture {
+        right: 60px;
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 768px) {
+    .clock {
+        font-size: 35px;
+    }
+    .profile-picture {
+        right: 60px;
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .clock {
+       
+        font-size: 30px;
+    }
+    .profile-picture {
+        margin-top: 50px;
+        right: 60px;
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 768px) {
+    .home-content h1 {
+        font-size: 40px; /* Ukuran font "Selamat Pagi" di layar mobile */
+    }
+
+    .logo {
+        flex-direction: column; /* Teks di dalam logo diatur vertikal pada layar mobile */
+        align-items: flex-start; /* Teks diatur mulai dari kiri */
+    }
+
+    .logo img {
+        margin-right: 0; /* Hapus margin antara gambar dan teks di layar mobile */
+        margin-bottom: 5px; /* Beri jarak kecil antara gambar dan teks di layar mobile */
+    }
+
+    .logo span {
+        font-size: 18px; /* Ukuran font teks utama di layar mobile */
+    }
+
+    .logo .subtitle {
+        font-size: 10px; /* Ukuran font subtitle di layar mobile */
+    }
+
+    .home-content {
+        padding-top: 100px; /* Beri padding atas agar tidak bertabrakan dengan header di layar mobile */
+    }
+}
+
+.transparent-input {
+    background-color: transparent;
+    border: 2px solid #ededed; /* Garis tepi dengan warna sesuai kebutuhan */
+    color: #ededed;
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 30px;
+    margin-right: 15px; /* Jarak antara input dan teks lain */
+    width: 300px; /* Sesuaikan lebar input */
+}
+
+.transparent-input::placeholder {
+    color: #ffffff; /* Warna placeholder */
+}
+
+
+
