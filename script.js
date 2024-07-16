@@ -13,3 +13,9 @@ setInterval(updateClock, 1000);
 
 // Initialize clock immediately
 updateClock();
+
+
+
+// absensi
+
+
