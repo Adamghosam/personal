@@ -8,7 +8,8 @@
 }
 
 body {
-    background: #103f61;
+    /* background: #103f61; */
+    background: #052659;
     color: #ededed;
 }
 
@@ -144,7 +145,8 @@ img {
     transform: translateX(-50%);
     font-size: 80px;
     font-weight: 700;
-    color: #00abf0;
+    color:#c1e8ff;
+    
 }
 
 .profile-picture {
@@ -158,7 +160,7 @@ img {
     border-radius: 50%;
     border: 2px solid #fff; /* Opsional: tambahkan border putih untuk membedakan dengan background */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Opsional: tambahkan shadow untuk efek mendalam */
-    background-image: url('IMG_20211021_222143_130.jpg'); /* Ganti dengan path foto yang sesuai */
+    background-image: url('/images/fty.jpg'); 
     background-size: cover; /* Agar gambar mencakup area dengan proporsi yang benar */
 }
 
