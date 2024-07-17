@@ -67,7 +67,7 @@ img {
 
 .navbar a:hover,
 .navbar a.active {
-    color: #00abf0;
+    color: #f7c200;
 }
 
 .home {
@@ -85,6 +85,11 @@ img {
     font-size: 50px;
     font-weight: 700;
 }
+.home-content h1 u {
+    font-size: 50px;
+    font-weight: 700;
+    color: #f7c200;
+}
 
 .home-content h3 {
     font-size: 40px;
@@ -101,7 +106,7 @@ img {
 .home-content h2 {
     font-size: 25px;
     font-weight: 700;
-    color: #d9db36;
+    color: #f7c200;
 }
 
 
@@ -140,7 +145,7 @@ img {
 
 .clock {
     position: fixed;
-    bottom: 20px; /* Jarak dari bawah halaman */
+    bottom: 50px; /* Jarak dari bawah halaman */
     left: 50%;
     transform: translateX(-50%);
     font-size: 80px;
@@ -149,7 +154,19 @@ img {
     
 }
 
-.profile-picture {
+
+.date {
+    position: fixed;
+    bottom: 30px; /* Adjusted to be below the clock */
+    margin-top: 12px; 
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 30px;
+    font-weight: 700;
+    color: #f7c200;
+}
+
+ #foto {
     position: fixed;
     right: 200px; /* Jarak dari kanan halaman */
     top: 50%;
@@ -159,8 +176,8 @@ img {
     overflow: hidden;
     border-radius: 50%;
     border: 2px solid #fff; /* Opsional: tambahkan border putih untuk membedakan dengan background */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Opsional: tambahkan shadow untuk efek mendalam */
-    background-image: url('/images/fty.jpg'); 
+    box-shadow: 0 0 10px rgba(179, 27, 27, 0.1); /* Opsional: tambahkan shadow untuk efek mendalam */
+    /* background-image: url('foto.jpg');  */
     background-size: cover; /* Agar gambar mencakup area dengan proporsi yang benar */
 }
 
@@ -240,6 +257,7 @@ img {
     color: #ededed;
     font-size: 18px;
     padding: 5px;
+    text-align: center;
     border-radius: 30px;
     margin-right: 15px; /* Jarak antara input dan teks lain */
     width: 300px; /* Sesuaikan lebar input */
@@ -249,5 +267,23 @@ img {
     color: #ffffff; /* Warna placeholder */
 }
 
-
+.ml6 {
+    position: relative;
+    font-weight: 900;
+    /* font-size: 3.3em; */
+  }
+  
+  .ml6 .text-wrapper {
+    position: relative;
+    display: inline-block;
+    padding-top: 0.2em;
+    padding-right: 0.05em;
+    padding-bottom: 0.1em;
+    overflow: hidden;
+  }
+  
+  .ml6 .letter {
+    display: inline-block;
+    line-height: 1em;
+  }
 

@@ -3,32 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="/js/anime.min.js"></script>
     <title>Absen-Pulang</title>
 </head>
 <body>
     <header class="header">
-        <a href="#" class="logo">
+        <a href="pulang.html" class="logo">
             <img src="images/logo.png" alt="">
             <div>
-                <span>Sistem Absensi Karyawan</span>
+              <h6 class="ml6">
+                <span class="text-wrapper">
+                  <span class="letters">Sistem Absensi Karyawan </span>
+                </span>
+              </h6>
                 <span class="subtitle">PT STARLIGHT GARMENT</span>
             </div>
         </a>
         
         <nav class="navbar">
             <input id="barcode" type="text" placeholder="BARCODE" class="transparent-input" required autofocus>
-            <a href="index.html" >Masuk</a>
+            <a href="masuk.html" >Masuk</a>
             <a href="pulang.html" class="active">Pulang</a>
         </nav>
     </header>
     <section class="home">
         <div class="home-content">
+          <h1><u>Absensi Pulang</u> </h1>
             <h1>Good Day,  All  <span class="departement" id="dept">(EDP)</span></h1>
-            <h2>STL0123456</h2>
-            <h2 class="cekin">07:00:00</h2>
-            <h2 class="cekin">10 jam</h2>
-            <h2 class="cekin">0 jam</h2>
+            <h2 class="pid">STL0123456</h2>
+            <h2 class="jamcekin">07:00:00</h2>
+            <h2 class="jamdurasi">10 jam</h2>
+            <h2 class="jamovertime">0 jam</h2>
             <p>Selamat Pulang Semoga Hati Hati di jalan</p>
        
             <div class="alert">
@@ -39,63 +46,89 @@
             
         </div>
         
-        <div class="clock" id="clock"></div>
+        <div class="date" id="hari"></div>
+        <div class="clock" id="jm"></div>                                 "></div>
         <div class="profile-picture">
-            <img src="fty.jpg" alt="Profile Picture" id="profile-picture" >
+            <img src="" alt="." id="foto" >
           
         </div>
     </section>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 
     <script type="text/javascript">
 
-        $(document).ready(function() {
-         $("#profile-picture").css('background-image',"url('fty.jpg')");
-              time();
-            });
-        
-            $("#barcode").on('change', function() {
-        
-              $("#profile-picture").css('background-image',"url('')"); 
-              var pid = $("#barcode").val().toUpperCase();
-        
-              if(pid !="") 
-              {
-              
-                $("#profile-picture").css('background-image',"url('http://192.168.32.1/asik/images/" + pid +".jpg')");
-              }
-          
-            });
-        
-         
-          function time() {
-                a = new Date();
-                D1 = a.getDay();
-                D2 = a.getDate();
-                M = a.getMonth();
-                Y = a.getFullYear();
-                h = a.getHours();
-                m = a.getMinutes();
-                s = a.getSeconds();
-                if(h<10)
-                  {
-                    h = "0"+h;
-                  }
-                if(m<10)
-                {
-                  m = "0"+m;
-                }
-                if(s<10)
-                {
-                  s = "0"+s;
-                }
-                var hari = Array("Minggu","Senin","Selasa","Rabu","Kamis","Jum'at","Sabtu");
-                var bulan = Array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember");
-                $("#jm").html(h+":"+m+":"+s);
-                setTimeout("time()",1000);
+      $(document).ready(function() {
+       $("#foto").css('background-image',"url('images/fty.jpg')");
+            time();
+          });
+      
+          $("#barcode").on('change', function() {
+      
+            $("#foto").css('background-image',"url('')"); 
+            var pid = $("#barcode").val().toUpperCase();
+      
+            if(pid !="") 
+            {
+            
+              $("#foto").css('background-image',"url('http://192.168.32.1/asik/images/" + pid +".jpg')");
             }
         
-        </script>
+          });
+      
+       
+          function time() {
+      a = new Date();
+      D1 = a.getDay();
+      D2 = a.getDate();
+      M = a.getMonth();
+      Y = a.getFullYear();
+      h = a.getHours();
+      m = a.getMinutes();
+      s = a.getSeconds();
+      
+      if (h < 10) {
+        h = "0" + h;
+      }
+      if (m < 10) {
+        m = "0" + m;
+      }
+      if (s < 10) {
+        s = "0" + s;
+      }
+      
+      var hari = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jum'at", "Sabtu"];
+      var bulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+      
+      document.getElementById("jm").innerHTML = h + ":" + m + ":" + s;
+      document.getElementById("hari").innerHTML = hari[D1] + ", " + D2 + " " + bulan[M] + " " + Y;
+      
+      setTimeout(time, 1000); // Use function reference instead of string
+    }
+    
+    window.onload = time;
+
+          
+// Wrap every letter in a span
+var textWrapper = document.querySelector('.ml6 .letters');
+textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml6 .letter',
+    translateY: ["1.1em", 0],
+    translateZ: 0,
+    duration: 750,
+    delay: (el, i) => 50 * i
+  }).add({
+    targets: '.ml6',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000
+  });
+
+      
+      </script>
    
     
 </body>

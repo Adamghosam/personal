@@ -3,103 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <script src="js/script.js"></script> -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="/js/anime.min.js"></script>
+    
     <title>Masuk</title>
 </head>
+
+
+
 <body>
     <header class="header">
-        <a href="#" class="logo">
+        <a href="masuk.html" class="logo">
             <img src="images/logo.png" alt="">
             <div>
-                <span>Sistem Absensi Karyawan</span>
+              <h6 class="ml6">
+                <span class="text-wrapper">
+                  <span class="letters">Sistem Absensi Karyawan </span>
+                </span>
+              </h6>
+                
                 <span class="subtitle">PT STARLIGHT GARMENT</span>
             </div>
         </a>
         
         <nav class="navbar">
             <input id="barcode" type="text" placeholder="BARCODE" class="transparent-input" required autofocus>
-            <a href="index.html" class="active">Masuk</a>
+            <a href="masuk.html" class="active">Masuk</a>
             <a href="pulang.html">Pulang</a>
         </nav>
     </header>
     <section class="home">
         <div class="home-content">
-            <h1>Good Morning,  All  <span class="departement" id="dept">(EDP)</span></h1>
-            <h2>STL0123456</h2>
-            <h2 class="cekin">07:00:00</h2>
-            <p>Selamat Bekerja. Semoga harimu menyenangkan</p>
+          <h1> <u>Absensi Masuk</u> </h1>
+            <h1>Morning Person, <span class="nama">STARLIGHT</span>   <span class="departement" id="dept"></span></h1>
+            
+            <h2>PID: <span class="nopid">STL0123456</span> </h2>
+            <h2>CHECKIN :  <span class="checkin">07:00:00</span> </h2>
+            <p>"Selamat Beraktifitas kembali "</p>
        
             <div class="alert">
                 <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-                <strong>Success</strong> Anda sudah check in
+                <strong>Success</strong> <span id="pesan"></span>
             </div>
 
             
         </div>
         
-        <div class="clock" id="clock"></div>
-        <div class="profile-picture">
-            <img src="/images/fty.jpg" alt="Profile Picture" id="profile-picture" >
-          
+        <div class="date" id="hari"></div>
+        <div class="clock" id="jm"></div>
+        <div class="profile-picture" id="foto">
+           
         </div>
     </section>
-    <script src="script.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript">
-      
+    
       $(document).ready(function() {
         time();
-        $("#profile-picture").css('background-image',"url('images/fty.jpg')");
-        
+        $("#foto").css('background-image', "url('/images/fty.jpg')");
+    
+        $("#barcode").on('change', function() {
+          var pid = $("#barcode").val().toUpperCase();
+          var hbd = "images/hbd.png";
+    
+          if (pid != "") {
+     
+            $("#pesan").html("");
+            $(".checkin").html("");
+            $(".jamcekin").html("");
+            $(".pid").html("");
+            $(".nopid").html("");
+            $(".nama").html("");
+            $(".dept").html("");
+            $("#foto").css('background-image',"url('')");
+    
+            // Additional code to handle barcode change can be added here
+          }
+        });
       });
-
-      $("#barcode").on('change',function() {
-          
-        var pid = $("#barcode").val().toUpperCase();
-        var hbd = "images/hbd.png";
-
-        if(pid !="") { 
-
-          $("#pesan").html("");
-          $(".checkin").html("");
-          $(".cekin").html("");
-          $(".pid").html("");
-          $(".nopid").html("");
-          $(".nama").html("");
-          $("#dept").html("");
-          $("#foto").css('background-image',"url('')");
-
-        
-
+    
       function time() {
-          a = new Date();
-          D1 = a.getDay();
-          D2 = a.getDate();
-          M = a.getMonth();
-          Y = a.getFullYear();
-          h = a.getHours();
-          m = a.getMinutes();
-          s = a.getSeconds();
-          if(h<10)
-            {
-              h = "0"+h;
-            }
-          if(m<10)
-          {
-            m = "0"+m;
-          }
-          if(s<10)
-          {
-            s = "0"+s;
-          }
-          var hari = Array("Minggu","Senin","Selasa","Rabu","Kamis","Jum'at","Sabtu");
-          var bulan = Array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember");
-          $("#jm").html(h+":"+m+":"+s);
-          $("#hari").html(hari[D1]+", "+D2+" "+bulan[M]+" "+Y);
-          //hari[D1]+", "+D2+" "+bulan[M]+" "+Y;
-          setTimeout("time()",1000);
+      a = new Date();
+      D1 = a.getDay();
+      D2 = a.getDate();
+      M = a.getMonth();
+      Y = a.getFullYear();
+      h = a.getHours();
+      m = a.getMinutes();
+      s = a.getSeconds();
+      
+      if (h < 10) {
+        h = "0" + h;
       }
+      if (m < 10) {
+        m = "0" + m;
+      }
+      if (s < 10) {
+        s = "0" + s;
+      }
+      
+      var hari = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jum'at", "Sabtu"];
+      var bulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+      
+      document.getElementById("jm").innerHTML = h + ":" + m + ":" + s;
+      document.getElementById("hari").innerHTML = hari[D1] + ", " + D2 + " " + bulan[M] + " " + Y;
+      
+      setTimeout(time, 1000); // Use function reference instead of string
+    }
+    
+    window.onload = time;
+
+// Wrap every letter in a span
+var textWrapper = document.querySelector('.ml6 .letters');
+textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml6 .letter',
+    translateY: ["1.1em", 0],
+    translateZ: 0,
+    duration: 750,
+    delay: (el, i) => 50 * i
+  }).add({
+    targets: '.ml6',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000
+  });
+
+
+
+
+  // tester js
+
+ 
+
+
+
+  // tester
+
+
     </script>
     
+
+
 </body>
 </html>
+        
